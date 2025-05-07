@@ -30,14 +30,14 @@
         <div class="inventory-section receiver">
             <h2>{{ receiver.nickname }}'s Inventory</h2>
             <div class="inventory-items">
-                {% for item in receiver_inventory %}
+                {% for elem in receiver_inventory %}
                 <div class="inventory-item" style="border:3px solid {{ item.bg_color }}">
-                    <img alt="{{ item.name }}" class="item-img" src="{{ item.image }}">
+                    <img alt="{{ elem.name }}" class="item-img" src="{{ elem.image }}">
                     <div class="item-info">
-                        <span class="item-name">{{ item.name }}</span>
-                        <span class="item-wear">Wear: {{ item.float }}</span>
+                        <span class="item-name">{{ elem.name }}</span>
+                        <span class="item-wear">Wear: {{ elem.float }}</span>
                     </div>
-                    <input id="{{ item.id }}" name="receiver-items" type="checkbox" value="{{ item }}">
+                    <input id="{{ elem.id }}" name="receiver-items" type="checkbox" value="{{ elem }}">
                 </div>
                 {% endfor %}
             </div>
