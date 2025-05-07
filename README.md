@@ -1,2 +1,2 @@
 # games-portal
-hello
+hello cool project
