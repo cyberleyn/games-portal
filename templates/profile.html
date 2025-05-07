@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.nickname }}'s Profile</title>
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="menu">
+    <a href="/myprofile">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='user.png') }}">
+            My profile
+        </div>
+    </a>
+    <a href="/mygames">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='joystick.png') }}">
+            My games
+        </div>
+    </a>
+    <a href="/myinventory">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='backpack.png') }}">
+            My inventory
+        </div>
+    </a>
+    <a href="/myfriends">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='small-talk.png') }}">
+            My friends
+        </div>
+    </a>
+    <a href="/users">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='search.png') }}">
+            Show users
+        </div>
+    </a>
+</div>
+<div class="container">
+    {% if error == "True" %}
+    <div class="login-error">
+        Invite already exists
+    </div>
+    {% endif %}
+    <!-- Avatar and Nickname -->
+    <div class="profile-header">
+        <img alt="Avatar" class="avatar" src="{{ user.avatar }}">
+        <h2>{{ user.nickname }}</h2>
+    </div>
+
+    <!-- Inventory button visible for everyone -->
+    {% if not can_edit %}
+    <a href="/profile/{{ user.id }}/inventory">
+        <button type="button">Inventory</button>
+    </a>
+    <!-- Friends list -->
+    <h3>Friends</h3>
+    {% if friends %}
+    <div class="friends-list">
+        {% for friend in friends %}
+        <div class="friend-item">
+            <a href="/profile/{{ friend.id }}">
+                <div class="user-data">
+                    <img alt="Avatar" class="avatar-friend" src="{{ friend.avatar }}">
+                    <span class="friend-name">{{ friend.nickname }}</span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No friends yet.</p>
+    {% endif %}
+    {% endif %}
+
+
+    <!-- Profile owner's section -->
+    {% if can_edit %}
+    <!-- Edit Profile and Logout buttons -->
+    <div class="profile-owner-controls">
+        <a href="/profile/{{ user.id }}/edit">
+            <button type="button">Edit Profile</button>
+        </a>
+        <a href="/profile/logout">
+            <button class="logoutbtn" type="button">Logout</button>
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Guest's view (not the profile owner) -->
+    {% if not can_edit %}
+    <!-- Case when current user is viewing someone else's profile -->
+    {% if pending_invite %}
+    {% if pending_invite["status"] == "incoming" %}
+    <!-- Incoming invite from the profile owner to the current user -->
+    <div class="controls">
+        <a href="/accept_invite/{{ pending_invite['invite'].id }}">
+            <button class="accept" type="button">Accept</button>
+        </a>
+        <a href="/decline_invite/{{ pending_invite['invite'].id }}">
+            <button class="decline" type="button">Decline</button>
+        </a>
+    </div>
+    {% elif pending_invite["status"] == "outgoing" %}
+    <!-- Outgoing invite from the current user to the profile owner -->
+    <span>Friendship invite sent. Awaiting response.</span>
+    {% elif pending_invite["status"] == "friends" %}
+    <!-- The two users are already friends -->
+    <span>You are friends</span>
+    {% elif pending_invite["status"] == "not_friends" %}
+    <!-- No invite, not friends yet -->
+    <a href="/profile/{{ user.id }}/invite">
+        <button class="add-friend" type="button">Add friend</button>
+    </a>
+    {% elif pending_invite["status"] == "not_logged_in" %}
+    <!-- User is not logged in -->
+    <p>Please log in to add friends.</p>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+</div>
+</body>
+</html>

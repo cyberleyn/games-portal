@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='inventory.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="profile-section">
+    <div class="profile-container">
+        <div class="profile-header">
+            <a href="/profile/{{ user.id }}">
+                <img alt="Avatar" class="avatar" src="{{ user.avatar }}">
+            </a>
+            <div class="name-wrapper">
+                <h2>{{ user.name }}</h2>
+                <span class="user-status">ID: {{ user.id }}</span>
+            </div>
+        </div>
+        {% if not can_edit %}
+        <a href="/profile/{{ user.id }}/create_offer">
+            <button class="btn">
+                Отправить обмен
+            </button>
+        </a>
+        {% else %}
+        <a href="/profile/{{ user.id }}/offers">
+            <button class="btn">
+                Предложения обменов
+            </button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+<div class="inventory-section">
+    <h3 class="inventory-title">CS2 Inventory</h3>
+
+    <!-- Error message handling -->
+    {% if not inventory %}
+    <div class="error-message">
+        Инвентарь пуст
+
+    </div>
+    {% endif %}
+
+    <!-- Inventory Items -->
+    <div class="inventory-items">
+        {% for item in inventory %}
+        <div class="inventory-item" style="border:3px solid {{ item.bg_color }};">
+            <img alt="{{ item.name }}" class="item-img" src="{{ item.image }}">
+            <div class="item-info">
+                <span class="item-name">{{ item.name }}</span>
+                <span class="item-wear">Wear: {{ item.float }}</span>
+            </div>
+            <a class="inspect-button" href="{{ item.inspect_link }}">
+                Inspect in Game
+                <svg class="bi bi-link" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"
+                          fill="white"></path>
+                    <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"
+                          fill="white"></path>
+                </svg>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+</body>
+</html>

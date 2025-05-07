@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='users.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='games.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="menu">
+    <a href="/myprofile">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='user.png') }}">
+            My profile
+        </div>
+    </a>
+    <a href="/mygames">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='joystick.png') }}">
+            My games
+        </div>
+    </a>
+    <a href="/myinventory">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='backpack.png') }}">
+            My inventory
+        </div>
+    </a>
+    <a href="/myfriends">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='small-talk.png') }}">
+            My friends
+        </div>
+    </a>
+    <a href="/users">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='search.png') }}">
+            Show users
+        </div>
+    </a>
+</div>
+<div class="content">
+    <div class="page-title">
+        Games
+    </div>
+    <div class="games">
+        {% for item in games %}
+        <div class="game-card">
+            <img src="{{ item.img_icon_url }}">
+            <div class="game-info">
+                {{ item.name }}
+                <div class="time">
+                    Сыграно {{ (item.playtime_forever /60)|round(2, "floor") }} часов
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="{{url_for('static', filename = 'main.css')}}" rel="stylesheet">
+</head>
+<body>
+<div class="auth-container">
+    <h2>Login Form</h2>
+    {% if error %}
+    <div class="login-error">
+        Invalid login or password
+    </div>
+    {% endif %}
+    <form action="" class="auth-form" method="post">
+        <label class="hint-form" for="uname">Username</label>
+        <input class="form-input" id="uname" name="uname" placeholder="Enter Username" required type="text">
+
+        <label class="hint-form" for="psw">Password</label>
+        <input class="form-input" id="psw" name="psw" placeholder="Enter Password" required type="password">
+
+        <button class="btn btn-primary" type="submit">Login</button>
+        <a href="/register">
+            <button class="btn btn-secondary" type="button">Register</button>
+        </a>
+    </form>
+</div>
+</body>
+</html>

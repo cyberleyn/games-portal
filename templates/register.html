@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="{{url_for('static', filename = 'main.css')}}" rel="stylesheet">
+</head>
+<body>
+<div class="auth-container">
+    <div class="header-with-back">
+        <a class="back-arrow" href="/">
+            <svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 19l-7-7 7-7v14z"/>
+            </svg>
+        </a>
+        <h2>Register Form</h2>
+    </div>
+
+    <form action="" class="auth-form" method="post">
+        <label class="hint-form" for="uname">Username</label>
+        <input class="form-input" id="uname" name="uname" placeholder="Enter Username" required type="text">
+
+        <label class="hint-form" for="psw">Password</label>
+        <input class="form-input" id="psw" name="psw" placeholder="Enter Password" required type="password">
+
+        <label class="hint-form" for="nickname">Nickname</label>
+        <input class="form-input" id="nickname" name="nickname" placeholder="Enter Nickname" type="text">
+
+        <label class="hint-form" for="avatar">Avatar</label>
+        <input class="form-input" id="avatar" name="avatar" placeholder="Enter Avatar URL" type="text">
+
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>

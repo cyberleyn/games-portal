@@ -1,0 +1,180 @@
+body{
+display:flex;
+margin:0;
+justify-content:space-between;
+font-family: 'Arial', sans-serif;
+background-color: #121212;
+color: #fff;
+}
+.profile-section{
+padding:15px;
+background-color: #1f1f1f;
+width: 40%;
+min-height: 100vh;
+}
+.inventory-section{
+padding:15px;
+background-color: #1f1f1f;
+width: 60%;
+min-height: 100vh;
+}
+/* General container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Flexbox layout for profile and inventory */
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-direction: row;
+}
+
+/* Left: Profile Container */
+.profile-container {
+    flex: 1;
+    margin-top:50px;
+    background-color: #121212;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align:center;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.name-wrapper h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.user-status {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.inventory-title {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+/* Updated Inventory Grid */
+.inventory-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Inventory Item Styling */
+.inventory-item {
+    background-color: #121212;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+    justify-content:space-between;
+}
+
+
+.inventory-item:hover {
+    transform: translateY(-5px);
+}
+
+.item-img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.item-info {
+    text-align: center;
+    margin-bottom: 10px;
+    display:flex;
+    flex-direction:column;
+}
+
+.item-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    max-width: 150px;
+}
+
+.item-wear {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Inspect button */
+.inspect-button {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    background-color: #5a8dee;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.inspect-button:hover {
+    background-color: #4a7cd5;
+}
+
+.inspect-button svg {
+    margin-left: 5px;
+    fill: white;
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff4d4d;
+    background-color: #121212;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+.sender-items, .receiver-items{
+display: flex;
+flex-wrap: wrap;
+}
+.accept {
+    background-color: green;
+}
+
+.decline {
+    background-color: red;
+    color: white;
+}
+.offer-holder{
+background-color: #121212;
+padding: 10px;
+margin: 10px;
+border-radius: 10px;
+}

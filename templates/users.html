@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='users.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="menu">
+    <a href="/myprofile">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='user.png') }}">
+            My profile
+        </div>
+    </a>
+    <a href="/myinventory">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='backpack.png') }}">
+            My inventory
+        </div>
+    </a>
+    <a href="/myfriends">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='small-talk.png') }}">
+            My friends
+        </div>
+    </a>
+    <a href="/users">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='search.png') }}">
+            Show users
+        </div>
+    </a>
+</div>
+<div class="content">
+    <div class="page-title">
+        All users
+    </div>
+    {% for item in users %}
+    <a href="/profile/{{ item.id }}">
+        <div class="profile-holder">
+            <img class="img-avatar" src="{{ item.avatar }}">
+            <div>
+                <div class="data-holder">
+                    {{ item.nickname }}
+                </div>
+                <div class="data-holder secondary">
+                    ID : {{ item.id }}
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+</body>
+</html>

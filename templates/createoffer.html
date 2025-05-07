@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='createoffer.css') }}" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <div class="trade-container">
+        <!-- Sender Inventory -->
+        <div class="inventory-section sender">
+            <h2>{{ sender.nickname }}'s Inventory</h2>
+            <div class="inventory-items">
+                {% for item in sender_inventory %}
+                <div class="inventory-item" style="border:3px solid {{ item.bg_color }}">
+                    <img alt="{{ item.name }}" class="item-img" src="{{ item.image }}">
+                    <div class="item-info">
+                        <span class="item-name">{{ item.name }}</span>
+                        <span class="item-wear">Wear: {{ item.float }}</span>
+                    </div>
+                    <input id="{{ item.id }}" name="sender-items" type="checkbox" value="{{ item }}">
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Receiver Inventory -->
+        <div class="inventory-section receiver">
+            <h2>{{ receiver.nickname }}'s Inventory</h2>
+            <div class="inventory-items">
+                {% for item in receiver_inventory %}
+                <div class="inventory-item" style="border:3px solid {{ item.bg_color }}">
+                    <img alt="{{ item.name }}" class="item-img" src="{{ item.image }}">
+                    <div class="item-info">
+                        <span class="item-name">{{ item.name }}</span>
+                        <span class="item-wear">Wear: {{ item.float }}</span>
+                    </div>
+                    <input id="{{ item.id }}" name="receiver-items" type="checkbox" value="{{ item }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Offer Button -->
+    <div class="send-offer-container">
+        <button class="send-offer-btn" type="submit">Send Offer</button>
+    </div>
+</form>
+
+
+</body>
+</html>

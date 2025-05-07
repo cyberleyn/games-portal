@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='users.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='friends.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="menu">
+    <a href="/myprofile">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='user.png') }}">
+            My profile
+        </div>
+    </a>
+    <a href="/myinventory">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='backpack.png') }}">
+            My inventory
+        </div>
+    </a>
+    <a href="/myfriends">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='small-talk.png') }}">
+            My friends
+        </div>
+    </a>
+    <a href="/users">
+        <div class="menu-item">
+            <img class="menu-icon" src="{{ url_for('static', filename='search.png') }}">
+            Show users
+        </div>
+    </a>
+</div>
+<div class="content">
+    <div class="page-title">
+        Friends
+    </div>
+    {% for item in friends %}
+    <a href="/profile/{{ item.id }}">
+        <div class="profile-holder">
+            <img class="img-avatar" src="{{ item.avatar }}">
+            <div class="data-holder">
+                {{ item.nickname }}
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    <div class="page-title">
+        Invites
+    </div>
+    {% if invites %}
+    <h4>Friendship Invites</h4>
+    <div class="invites-list">
+        {% for invite in invites %}
+        <div class="invite-item">
+            <a href="/profile/{{ invite.from_user.id }}">
+                <div class="user-data">
+                    <img alt="Avatar" class="img-avatar" src="{{ invite.from_user.avatar }}">
+                    <span class="friend-name">{{ invite.from_user.nickname }}</span>
+                </div>
+            </a>
+            <div class="invite-controls">
+                <a href="/accept_invite/{{ invite.id }}">
+                    <button class="accept" type="button">Accept</button>
+                </a>
+                <a href="/decline_invite/{{ invite.id }}">
+                    <button class="decline" type="button">Decline</button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No incoming invites.</p>
+    {% endif %}
+</div>
+</body>
+</html>

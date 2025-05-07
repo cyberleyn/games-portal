@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='errorpage.css') }}" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<img src="{{ url_for('static', filename='smile.png') }}">
+<div class="errormsg">
+    Вы не можете отправить обмен себе
+</div>
+<a href="/profile/{{ user.id }}">
+    <button>
+        Вернуться назад
+    </button>
+</a>
+</body>
+</html>

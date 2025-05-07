@@ -1,0 +1,344 @@
+/* General Styles */
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid lightblue;
+    margin-bottom: 10px;
+}
+
+.profile-username {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Friend Invites */
+.friend-invites {
+    margin-bottom: 20px;
+}
+
+.friend-invite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #292929;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.friend-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.invite-controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* Friends List */
+.friends-list {
+    margin-bottom: 20px;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.friend-card {
+    background-color: #292929;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.friend-card:hover {
+    transform: scale(1.05);
+}
+
+.friend-name {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/* Common container */
+.container, .auth-container, .edit-profile-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(250, 250, 250, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form Input Styles */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.form-input {
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+/* Button Styles */
+button {
+    background-color: lightblue;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+.btn {
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: lightblue;
+}
+
+.btn-secondary {
+    background-color: #4CAF50;
+}
+
+.logoutbtn {
+    background-color: red;
+}
+
+/* Header with Back Arrow */
+.header-with-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.back-arrow {
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.back-arrow svg {
+    width: 24px;
+    height: 24px;
+    fill: lightblue;
+    cursor: pointer;
+}
+
+.back-arrow svg:hover {
+    fill: #007bff;
+}
+
+/* Hint Form Labels */
+.hint-form {
+    display: block;
+    color: grey;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+/* Avatar Styles */
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-friend, .avatar-invite {
+    width: 75px;
+    height: 75px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* User Data */
+.user-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Friend List */
+.invite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Accept/Decline Button */
+.accept {
+    background-color: green;
+}
+
+.decline {
+    background-color: red;
+}
+
+.menu{
+    background-color: #212121;
+    border-radius: 15px 0 0 15px;
+    box-shadow: 0px 0px 5px 0px rgba(250, 250, 250, 0.1);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.menu-item{
+display: flex;
+align-items: center;
+font-weight: bold;
+font-size: 16px;
+padding: 20px;
+}
+
+.menu-icon{
+width: 25px;
+height: 25px;
+margin-right: 25px;
+
+}
+
+.friends-list{
+display:flex;
+max-width: 500px;
+flex-wrap: wrap;
+}
+
+.friend-item{
+margin:10px;
+}
+
+a{
+text-decoration:none;
+}
+
+a:visited{
+  color:white;
+}
+
+.login-error{
+background-color:#F08080;
+color:#8B0000;
+border:3px solid #8B0000;
+padding:10px;
+border-radius:10px;
+margin:10px 0;
+font-weight:bold;
+}

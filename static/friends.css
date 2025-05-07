@@ -1,0 +1,52 @@
+.invite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Accept/Decline Button */
+.accept {
+    background-color: green;
+}
+
+.decline {
+    background-color: red;
+}
+
+button {
+    background-color: lightblue;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.invite-item{
+display:flex;
+align-items:center;
+background-color:#121212;
+margin:10px;
+padding:20px;
+border-radius:20px;
+}
+
+.user-data{
+align-items:center;
+display:flex;
+margin-right:20px;
+}
+a{
+text-decoration:none;
+}
+
+a:visited{
+  color:white;
+}
+h4{
+margin:20px;
+}
